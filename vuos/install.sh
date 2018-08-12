@@ -65,9 +65,4 @@ git clone https://github.com/virtualsquare/vuos.git
 	make install
 
 ldconfig
-echo Installation complete
-
-# git clone https://github.com/virtualsquare/purelibc.git
-# git clone https://github.com/rd235/libvolatilestream.git
-# git clone https://github.com/rd235/libstropt.git
-# git clone https://github.com/rd235/strcase.git
+echo 'Installation completed'
