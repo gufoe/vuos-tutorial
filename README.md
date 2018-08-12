@@ -6,5 +6,5 @@ Just run the `vuos/install.sh` script on a Debian installation.
 Remember to `echo 0 > /proc/sys/kernel/yama/ptrace_scope`
 
 ## Run it with Docker
-Build the image: `docker build -t vuos .`
-Run it: `docker run -ti --cap-add=SYS_PTRACE vuos`
+Build the image: `docker build -t vuos .`  
+Run it: `docker run -ti --cap-add=SYS_PTRACE vuos`  
