@@ -1,5 +1,11 @@
-# Running in docker
-Build it:
+# What is this
+This contains a set of scripts to install and experiment with VUOS and its related projects (VDE etc).
+
+## Install VUOS
+Just run the vuos/install.sh script on a Debian installation.
+
+## Run it with Docker
+Build the image:
 ```bash
 docker build -t vuos .
 ```
