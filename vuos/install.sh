@@ -23,6 +23,16 @@ trap 'handle_error $LINENO ${BASH_LINENO[@]}' ERR
 rm -rf gits
 mkdir gits
 
+
+cd "$BASE"/gits
+	git clone https://github.com/virtualsquare/vde-2.git
+	cd vde-2
+	autoreconf -if || (libtoolize; autoreconf -if) # WTF is this not compiling at first?
+	./configure
+	make
+	make install
+	ldconfig
+
 cd "$BASE"/gits
 git clone https://github.com/rd235/vdeplug4.git
 	cd vdeplug4
@@ -31,6 +41,7 @@ git clone https://github.com/rd235/vdeplug4.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/virtualsquare/purelibc.git
@@ -38,6 +49,7 @@ git clone https://github.com/virtualsquare/purelibc.git
 	cd purelibc/build
 	cmake ..
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/libvolatilestream.git
@@ -45,6 +57,7 @@ git clone https://github.com/rd235/libvolatilestream.git
 	cd libvolatilestream/build
 	cmake ..
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/libstropt.git
@@ -52,6 +65,7 @@ git clone https://github.com/rd235/libstropt.git
 	cd libstropt/build
 	cmake ..
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/strcase.git
@@ -59,6 +73,7 @@ git clone https://github.com/rd235/strcase.git
 	cd strcase/build
 	cmake ..
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/libvdestack.git
@@ -67,6 +82,7 @@ git clone https://github.com/rd235/libvdestack.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/vdeplug_vlan.git
@@ -75,6 +91,7 @@ git clone https://github.com/rd235/vdeplug_vlan.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/cado.git
@@ -83,6 +100,7 @@ git clone https://github.com/rd235/cado.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/vdeplug_agno.git
@@ -91,6 +109,7 @@ git clone https://github.com/rd235/vdeplug_agno.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/rd235/vdens.git
@@ -99,6 +118,7 @@ git clone https://github.com/rd235/vdens.git
 	./configure
 	make
 	make install
+	ldconfig
 
 cd "$BASE"/gits
 git clone https://github.com/virtualsquare/vuos.git
@@ -106,6 +126,6 @@ git clone https://github.com/virtualsquare/vuos.git
 	cd vuos/build
 	cmake ..
 	make install
+	ldconfig
 
-ldconfig
 echo 'Installation completed'
