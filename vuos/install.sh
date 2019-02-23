@@ -25,6 +25,15 @@ mkdir gits
 
 
 cd "$BASE"/gits
+	git clone https://github.com/rd235/s2argv-execs.git
+	cd s2argv-execs
+	autoreconf -if || (libtoolize; autoreconf -if) # WTF is this not compiling at first?
+	./configure
+	make
+	make install
+	ldconfig
+
+cd "$BASE"/gits
 	git clone https://github.com/virtualsquare/vde-2.git
 	cd vde-2
 	autoreconf -if || (libtoolize; autoreconf -if) # WTF is this not compiling at first?
@@ -103,6 +112,16 @@ git clone https://github.com/rd235/cado.git
 	ldconfig
 
 cd "$BASE"/gits
+git clone https://github.com/alperakcan/fuse-ext2.git
+	cd fuse-ext2
+	autoreconf -if || (libtoolize; autoreconf -if) # WTF is this not compiling at first?
+	./configure
+	make
+	make install
+	ldconfig
+
+
+cd "$BASE"/gits
 git clone https://github.com/rd235/vdeplug_agno.git
 	cd vdeplug_agno
 	autoreconf -if || (libtoolize; autoreconf -if) # WTF is this not compiling at first?
@@ -127,5 +146,7 @@ git clone https://github.com/virtualsquare/vuos.git
 	cmake ..
 	make install
 	ldconfig
+	rm -f /usr/local/lib/vu/modules/vufuseext2.so
+	ln -s  /usr/local/lib/umview/modules/umfuseext2.so /usr/local/lib/vu/modules/vufuseext2.so
 
 echo 'Installation completed'
